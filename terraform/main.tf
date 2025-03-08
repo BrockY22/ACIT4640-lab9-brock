@@ -22,6 +22,18 @@ locals {
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami
 data "aws_ami" "ubuntu" {
   # COMPLETE ME
+  most_recent = true
+  filter {
+    name   = "name"
+    values = ["packer-ansible-nginx-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["self"] 
 }
 
 # Create a VPC
