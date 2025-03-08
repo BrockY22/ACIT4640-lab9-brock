@@ -23,17 +23,12 @@ locals {
 data "aws_ami" "ubuntu" {
   # COMPLETE ME
   most_recent = true
+  owners      = ["self"]
+
   filter {
     name   = "name"
-    values = ["packer-ansible-nginx-*"]
+    values = ["packer-ansible-nginx"]
   }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["self"] 
 }
 
 # Create a VPC

@@ -3,3 +3,4 @@ terraform/.terr*
 terraform/terr*
 **/scripts
 **/ansible
+key_data

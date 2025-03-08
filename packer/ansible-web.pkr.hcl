@@ -16,7 +16,6 @@ source "amazon-ebs" "ubuntu" {
   region        = "us-west-2"
   instance_type = "t2.micro"
   ami_name      = "packer-ansible-nginx"
-  ssh_username  = var.ssh_username
 
   source_ami_filter {
     filters = {
@@ -27,6 +26,7 @@ source "amazon-ebs" "ubuntu" {
     owners      = ["099720109477"]  # Canonical's AWS Account ID
     most_recent = true
   }
+  ssh_username  = var.ssh_username
 }
 
 build {
@@ -34,7 +34,9 @@ build {
   sources = ["source.amazon-ebs.ubuntu"]
 
   provisioner "ansible" {
+    playbook_file = "./ansible/playbook.yml"
     ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False"]
-    playbook_file = "/home/zyuan18/4640-w9-lab-start-w25/ansible/playbook.yml"
+    user = var.ssh_username
+    use_proxy = false
   }
 }
