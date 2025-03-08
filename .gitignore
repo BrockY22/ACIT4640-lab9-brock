@@ -1,6 +1,7 @@
 terraform/.*
 terraform/.terr*
 terraform/terr*
-**/scripts
+scripts/
 **/ansible
-key_data
+key_data.json
+ansible/
