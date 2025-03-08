@@ -32,3 +32,4 @@ terraform destroy
 ##### Screenshots
 ![](images/lab9-1.png)
 ![](images/lab9-2.png)
+![](images/lab9-3.png)
